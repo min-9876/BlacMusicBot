@@ -10,6 +10,10 @@ WORKDIR /app
 
 # Copy requirements first for layer caching
 COPY requirements.txt .
+
+# Cache ကို အတင်းဖျက်ပြီး အသစ်ပြန်သွင်းခိုင်းရန် (ဒီစာကြောင်းလေး တိုးလိုက်ပါ)
+ARG CACHEBUST=1
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all bot files
