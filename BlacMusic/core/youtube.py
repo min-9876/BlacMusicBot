@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Optional, Union
 
 from pyrogram import enums, types
-from py_yt import Playlist, VideosSearch
+from youtube_search_python import Playlist, VideosSearch
 from BlacMusic import config, logger
 from BlacMusic.helpers import Track, utils
 
