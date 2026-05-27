@@ -8,12 +8,11 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# Copy requirements first for layer caching
+# Cache ကို လုံးဝ အလုပ်မလုပ်စေဘဲ တစ်ဖိုင်လုံး အသစ်ပြန်ဆောက်ခိုင်းရန် (ထိပ်ဆုံးမှာ ထားရပါမယ်)
+ARG CACHEBUST=2
+
+# Copy and install dependencies
 COPY requirements.txt .
-
-# Cache ကို အတင်းဖျက်ပြီး အသစ်ပြန်သွင်းခိုင်းရန် (ဒီစာကြောင်းလေး တိုးလိုက်ပါ)
-ARG CACHEBUST=1
-
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all bot files
